@@ -1,5 +1,5 @@
 def fib(n)
-  [0, 1].include?(n) ? n : fib(n - 1) + fib(n - 2)
+  [1, 2].include?(n) ? n - 1 : fib(n - 1) + fib(n - 2)
 end
 
 def fibs(num)
@@ -11,6 +11,4 @@ def fibs(num)
   end
   output
 end
-
-p fibs(1)
 
