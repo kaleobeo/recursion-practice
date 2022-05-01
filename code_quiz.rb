@@ -28,13 +28,27 @@ map = {
   1 => "I"
 }
 
-def roman_rec(map, num, result='')
+def roman_rec(map, num, result = '')
 
   return result if num == 0
   char_value = map.keys.find { |val| val <= num }
   num -= char_value
   result << map[char_value]
-  roman_rec(num, result)
+  roman_rec(map, num, result)
 end
 
-p roman_rec(map, 44)
+# p roman_rec(map, 44)
+
+def roman_to_int(map, string, num = 0)
+  return num if string.length.zero?
+  digit = string.chars.last(2).join
+  if map.values.include?(digit)
+    num += map.key(digit)
+    roman_to_int(map, string.chars[0...-2].join, num)
+  else
+    num += map.key(string[-1])
+    roman_to_int(map, string.chars[0...-1].join, num)
+  end
+end
+
+p roman_to_int(map, 'XCIV')
