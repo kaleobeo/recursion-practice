@@ -1,5 +1,7 @@
-def fib(n)
-  [1, 2].include?(n) ? n - 1 : fib(n - 1) + fib(n - 2)
+# frozen_string_literal: true
+
+def fib(num)
+  [1, 2].include?(num) ? num - 1 : fib(num - 1) + fib(num - 2)
 end
 
 def fibs(num)

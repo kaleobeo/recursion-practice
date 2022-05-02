@@ -44,11 +44,11 @@ def roman_to_int(map, string, num = 0)
   digit = string.chars.last(2).join
   if map.values.include?(digit)
     num += map.key(digit)
-    roman_to_int(map, string.chars[0...-2].join, num)
+    roman_to_int(map, string[0...-2], num)
   else
     num += map.key(string[-1])
-    roman_to_int(map, string.chars[0...-1].join, num)
+    roman_to_int(map, string[0...-1], num)
   end
 end
 
-p roman_to_int(map, 'XCIV')
+p roman_to_int(map, 'X')
